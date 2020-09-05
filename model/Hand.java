@@ -13,7 +13,7 @@ public class Hand {
         this.hand.add(c);
     }
 
-    public boolean isPair () { // 2 cards eq
+    public boolean isPair () { // 2 equal cards
         int n = 0;
         for (int i = 0; i < hand.size(); i++) {
             for (int j = 0; j < hand.size(); j++) {
@@ -28,7 +28,7 @@ public class Hand {
         return false;
     }
 
-    public boolean isPairDouble () { // 2 cards eq + 2 cards eq
+    public boolean isPairDouble () { // 2 equal cards + 2 equal cards
         int n = 0;
         for (int i = 0; i < hand.size(); i++) {
             for (int j = 0; j < hand.size(); j++) {
@@ -43,7 +43,7 @@ public class Hand {
         return false;
     }
 
-    public boolean isTriple () { // 3 cards eq
+    public boolean isTriple () { // 3 equal cards
         int n = 0;
         for (int i = 0; i < hand.size(); i++) {
             for (int j = 0; j < hand.size(); j++) {
@@ -58,7 +58,7 @@ public class Hand {
         return false;
     }
 
-    public boolean isStraight () {  // rank, rank+1, rank+2, rank+3, rank+4
+    public boolean isStraight () {  // 5 cards sequential rank
         int n = 0;
         Collections.sort(hand, new Comparator<Card>(){
             public int compare (Card c1, Card c2) {
@@ -76,7 +76,7 @@ public class Hand {
         return false;
     }
 
-    public boolean isFull () { // 3 cards eq and 2 eq
+    public boolean isFull () { // 3 equal cards rank + 2 equal cards rank
         if (hand.get(0).getRank() == hand.get(1).getRank() && hand.get(3).getRank() == hand.get(4).getRank()) {
             if (hand.get(1).getRank() != hand.get(2).getRank() && hand.get(2).getRank() == hand.get(3).getRank()) {
                 return true;
@@ -90,7 +90,7 @@ public class Hand {
         return false;
     }
 
-    public boolean isFlush () {
+    public boolean isFlush () { // 4 cards same suit
         int n = 0;
         for (int i = 0; i < hand.size(); i++) {
             for (int j = 0; j < hand.size(); j++) {
@@ -105,7 +105,7 @@ public class Hand {
         return false;
     }
 
-    public boolean isQuad () {
+    public boolean isQuad () { // 4 cards same rank
         int n = 0;
         for (int i = 0; i < hand.size(); i++) {
             for (int j = 0; j < hand.size(); j++) {
@@ -120,7 +120,7 @@ public class Hand {
         return false;
     }
 
-    public boolean isStraightFlush () {
+    public boolean isStraightFlush () { // 5 cards sequential rank and same suit
         int n = 0;
         for (int i = 0; i < hand.size()-1; i++) {
             if (hand.get(i).getRank() == hand.get(i+1).getRank()-1) {
